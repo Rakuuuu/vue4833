@@ -44,6 +44,8 @@
                       allow-clear
                       @clear="clearLoginForm"
                       v-model="loginForm.account"
+                      size="large"
+                      class="input"
                   >
                     <template #prefix>
                       <icon-user
@@ -58,6 +60,8 @@
                   <a-input-password
                       placeholder="密码"
                       v-model="loginForm.password"
+                      size="large"
+                      class="input"
                   >
                     <template #prefix>
                       <icon-lock
@@ -75,6 +79,7 @@
                       type="primary"
                       long
                       @click="loginConfirm"
+                      class="login-btn"
                   >登录
                   </a-button>
                 </a-form-item>
@@ -154,18 +159,17 @@ export default {
 }
 
 .bg-img{
-  height: v-bind(windowInnerHeight-96 + 'px');
+  height: 960px;
   margin: 0;
   padding: 0;
 }
 
 .login-form-area{
-  height: v-bind(windowInnerHeight-196 + 'px');
-  width: v-bind(windowInnerWidth/2.5-64 + 'px');
+  height: 600px;
+  width: 600px;
   position: absolute;
   right: 64px;
-  top: 50%;
-  transform: translate(0,-50%);
+  top: 64px;
   z-index: 999;
   background-color: white;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.15);
@@ -182,18 +186,27 @@ export default {
 
 .title{
   text-align: center;
-  margin: 24px 0;
+  margin: 64px 0;
   font-weight: bolder;
+  font-size: 64px;
 }
 
 .form{
   width: 70%;
   margin: 0 auto;
-  align-self: center;
 }
 
 .form-icon{
   color: #f68436;
+}
+
+.input{
+  padding: 8px;
+  margin: 0 0 8px 0;
+}
+
+.login-btn{
+  padding: 20px;
 }
 
 .login-layout-footer{

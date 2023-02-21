@@ -2,8 +2,7 @@
   <div>
     <a-layout class="main-window">
       <a-layout-header class="nav-bar">
-        <a-row>
-          <a-col :span="8" class="left-content">
+          <div class="left-content">
             <div>
               <a-space class="left-content-space">
                 <a-avatar
@@ -18,10 +17,8 @@
                 <h3>DPSAS</h3>
               </a-space>
             </div>
-          </a-col>
-          <a-col
-              :span="8"
-              :offset="8"
+          </div>
+          <div
               class="right-content"
           >
             <a-space class="right-content-space">
@@ -33,6 +30,7 @@
                 <a-menu-item key="index" @click="navigateTo('index')">主页</a-menu-item>
                 <a-menu-item key="manage" @click="navigateTo('manage')">管理</a-menu-item>
                 <a-menu-item key="my" @click="navigateTo('my')">我的</a-menu-item>
+
               </a-menu>
               <a-dropdown
                   trigger="hover"
@@ -60,8 +58,7 @@
                 未登录
               </a-avatar>
             </a-space>
-          </a-col>
-        </a-row>
+          </div>
       </a-layout-header>
       <a-layout-content class="layout-content">
         <router-view></router-view>
@@ -139,6 +136,12 @@ export default {
 }
 
 .right-content-space-menu{
+  width: 320px;
+  text-align: right;
+  margin-right: -16px;
+}
+
+.right-content-space-menu > *{
 }
 
 .avatar :hover{

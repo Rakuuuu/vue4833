@@ -87,7 +87,7 @@
                   v-model="registerForm.telephoneNumber"
                   :max-length='11'
                   :precision="0"
-                  @input="onlySaveTelephoneNumber"
+                  @input="onlySaveNumberOfTelephone"
               >
                 <template #prepend>
                   +86
@@ -96,7 +96,7 @@
               <a-button
                   type="primary"
                   class="send-ccode-button"
-                  :disabled="setCcodeBtnDisability"
+                  :disabled="setIdentifyingCodeButtonDisability"
               >发送验证码</a-button>
             </a-form-item>
             <a-form-item
@@ -110,7 +110,7 @@
               <a-input
                   v-model="registerForm.identifyingCode"
                   :max-length='6'
-                  @input="onlySaveIdentifyingNumber"
+                  @input="onlySaveNumberOfIdentifyingCode"
               />
             </a-form-item>
             <a-form-item
@@ -155,7 +155,7 @@ export default {
     }
   },
   methods:{
-    onlySaveTelephoneNumber(value){
+    onlySaveNumberOfTelephone(value){
       console.log("before clean:" + value)
       for(let i in value)
         if (value[i] > '9' || value < '0')
@@ -164,7 +164,7 @@ export default {
       this.registerForm.telephoneNumber = value
     },
 
-    onlySaveIdentifyingNumber(value){
+    onlySaveNumberOfIdentifyingCode(value){
       console.log("before clean:" + value)
       for(let i in value)
         if (value[i] > '9' || value < '0')
@@ -176,7 +176,7 @@ export default {
   },
 
   computed:{
-    setCcodeBtnDisability(){
+    setIdentifyingCodeButtonDisability(){
       if(this.registerForm.telephoneNumber.length !== 11)
         return true;
       for(let i in this.registerForm.telephoneNumber)
